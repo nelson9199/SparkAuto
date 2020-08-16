@@ -1,0 +1,69 @@
+﻿@page
+@model SparkAuto.Pages.Users.DeleteModel
+@{
+	ViewData["Title"] = "Delete";
+	Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-info">Delete Customer</h2>
+<br />
+
+<form method="post">
+	<div class="border backgroundWhite">
+		<input type="hidden" asp-for="ApplicationUser.Id" />
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="ApplicationUser.Name"></label>
+			</div>
+			<div class="col-5">
+				<input type="text" disabled asp-for="ApplicationUser.Name" class="form-control" />
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="ApplicationUser.Email"></label>
+			</div>
+			<div class="col-5">
+				<input type="text" disabled asp-for="ApplicationUser.Email" class="form-control" />
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="ApplicationUser.PhoneNumber"></label>
+			</div>
+			<div class="col-5">
+				<input type="text" disabled asp-for="ApplicationUser.PhoneNumber" class="form-control" />
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="ApplicationUser.Addres"></label>
+			</div>
+			<div class="col-5">
+				<input type="text" disabled asp-for="ApplicationUser.Addres" class="form-control" />
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="ApplicationUser.City"></label>
+			</div>
+			<div class="col-5">
+				<input type="text" disabled asp-for="ApplicationUser.City" class="form-control" />
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="ApplicationUser.PostalCode"></label>
+			</div>
+			<div class="col-5">
+				<input type="text" disabled asp-for="ApplicationUser.PostalCode" class="form-control" />
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-5 offset-2">
+				<partial name="_DeleteAndBackToListButtons">
+			</div>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,18 @@
+﻿@page
+@model SparkAuto.Areas.Identity.Pages.Account.VerifyEmailModel
+
+<h1>Confirm Email Address</h1>
+<div>
+	<p>
+		Confirm your email before proceding!
+		<br />
+		If you haven't recieved any email please check your spam folder!
+	</p>
+</div>
+<br />
+<div class="w-25">
+	<form method="post">
+		<input type="hidden" asp-for="Email" />
+		<input type="submit" class="btn btn-success form-control" value="Resend Confirmation Email" />
+	</form>
+</div>
