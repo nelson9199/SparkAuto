@@ -61,6 +61,7 @@ namespace SparkAuto.Pages.Users
                 await context.SaveChangesAsync();
 
                 return RedirectToPage("Index");
+
             }
         }
     }

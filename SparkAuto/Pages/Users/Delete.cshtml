@@ -25,7 +25,7 @@
 				<label asp-for="ApplicationUser.Email"></label>
 			</div>
 			<div class="col-5">
-				<input type="text" disabled asp-for="ApplicationUser.Email" class="form-control" />
+				<input id="txtEmail" type="text" disabled asp-for="ApplicationUser.Email" class="form-control" />
 			</div>
 		</div>
 		<div class="form-group row">
@@ -62,8 +62,30 @@
 		</div>
 		<div class="form-group row">
 			<div class="col-5 offset-2">
-				<partial name="_DeleteAndBackToListButtons">
+				<div class="row">
+					<div class="col-6">
+						<input type="submit" onclick=" return ValidarNoBorrarAdmin()" class="btn btn-danger form-control" value="Delete" />
+					</div>
+					<div class="col-6">
+						<a asp-page="Index" class="btn btn-success form-control">Back to List</a>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
 </form>
+
+@section Scripts{
+
+	<script>
+		function ValidarNoBorrarAdmin() {
+			var miles = $("#txtEmail").val();
+
+			if (miles.toString() === 'admin@gmail.com') {
+				swal("Error!", "You Can't Delete the master Admin", "error");
+				return false;
+			}
+		}
+	</script>
+}

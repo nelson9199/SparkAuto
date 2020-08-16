@@ -36,22 +36,22 @@ namespace SparkAuto.Data
                 Console.WriteLine(ex.Message);
             }
 
-            if (await _context.Roles.AnyAsync(x => x.Name == StaticDetails.AdminEndUser))
+            if (_context.Roles.AnyAsync(x => x.Name == StaticDetails.AdminEndUser).GetAwaiter().GetResult())
             {
                 return;
             }
 
-            await _roleManager.CreateAsync(new IdentityRole(StaticDetails.AdminEndUser));
-            await _roleManager.CreateAsync(new IdentityRole(StaticDetails.CustomerEndUser));
+            _roleManager.CreateAsync(new IdentityRole(StaticDetails.AdminEndUser)).GetAwaiter().GetResult();
+            _roleManager.CreateAsync(new IdentityRole(StaticDetails.CustomerEndUser)).GetAwaiter().GetResult();
 
-            await _userManager.CreateAsync(new ApplicationUser
+            _userManager.CreateAsync(new ApplicationUser
             {
                 UserName = "admin@gmail.com",
                 Email = "admin@gmail.com",
                 Name = "Web Master",
                 EmailConfirmed = true,
                 PhoneNumber = "0996266715",
-            }, "Admin123*");
+            }, "Admin123*").GetAwaiter().GetResult();
 
             _userManager.AddToRoleAsync(_context.Users.FirstOrDefaultAsync(x => x.Email == "admin@gmail.com").GetAwaiter().GetResult(), StaticDetails.AdminEndUser).GetAwaiter().GetResult();
         }
